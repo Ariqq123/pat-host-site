@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+:root {
+  --page: #f7fbf8;
+  --paper: #ffffff;
+  --ink: #14532d;
+  --muted: #3f6b4e;
+  --faint: #5a7d66;
+  --line: #ccebd6;
+  --mint: #ecfdf3;
+  --soft: #f0faf3;
+  --panel: #f3faf5;
+  --forest: #14532d;
+  --hero-from: #ffffff;
+  --hero-via: #f3faf5;
+  --glow: rgba(20, 83, 45, 0.06);
+  --grid: rgba(34, 197, 94, 0.08);
+}
+
+html.old-mode {
+  color-scheme: dark;
+  --page: #050806;
+  --paper: #0d1410;
+  --ink: #e7f5eb;
+  --muted: #9ab89f;
+  --faint: #7a9a82;
+  --line: #1c3324;
+  --mint: #102018;
+  --soft: #0c1a13;
+  --panel: #0a1610;
+  --forest: #07140e;
+  --hero-from: #050806;
+  --hero-via: #08110c;
+  --glow: rgba(0, 0, 0, 0.35);
+  --grid: rgba(34, 197, 94, 0.12);
+}
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", var(--font-sans);
+  --color-page: var(--page);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-mint: var(--mint);
+  --color-soft: var(--soft);
+  --color-panel: var(--panel);
+  --color-forest: var(--forest);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+::selection {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.site-bg {
+  background:
+    radial-gradient(900px 420px at 100% 0%, rgba(34, 197, 94, 0.14), transparent 55%),
+    radial-gradient(700px 380px at 0% 20%, rgba(20, 83, 45, 0.08), transparent 50%),
+    var(--page);
+}
+
+html.old-mode .site-bg {
+  background:
+    radial-gradient(900px 420px at 100% 0%, rgba(34, 197, 94, 0.12), transparent 55%),
+    radial-gradient(700px 380px at 0% 20%, rgba(34, 197, 94, 0.06), transparent 50%),
+    var(--page);
+}
+
+.hero-scene {
+  background:
+    linear-gradient(180deg, var(--hero-from) 0%, var(--hero-via) 70%, var(--page) 100%);
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 15%, transparent 72%);
+}
+
+.glass {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px var(--glow);
+}
+
+.glow-btn {
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.28);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 10px 28px rgba(34, 197, 94, 0.38);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e var(--fill, 0%), var(--mint) var(--fill, 0%));
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 3px solid #16a34a;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 3px solid #16a34a;
+  cursor: pointer;
+}
+
+.plan-block {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: transform 0.25s ease;
+}
+
+.plan-card:hover .plan-block {
+  transform: translateY(-8px);
+}
+
+html.old-mode img[alt="Pat Host"] {
+  background: #ffffff;
+  border-radius: 1rem;
+}
